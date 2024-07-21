@@ -1,0 +1,78 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/Documents/Courses/Degital Design_KW/Project 1
+vDSP48A1
+Z0 !s110 1721562237
+!i10b 1
+!s100 j9>3R]UPPoS>bHjkAU[FH3
+IK<>8g5H8<BCkNFIBGz8:_2
+Z1 dD:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/sim
+w1721521797
+8D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/DSP48A1.v
+FD:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/DSP48A1.v
+!i122 0
+L0 1 52
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z4 !s108 1721562237.000000
+!s107 D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/DSP48A1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/DSP48A1.v|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
+n@d@s@p48@a1
+vff_mux
+R0
+!i10b 1
+!s100 o2CC8fc[OMX]lSf<b_dPj0
+IYjR7ZkFCKQlNg1Ba97;B@1
+R1
+w1721518844
+8D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/ff_mux.v
+FD:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/ff_mux.v
+!i122 1
+L0 1 27
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/ff_mux.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/ff_mux.v|
+!i113 0
+R5
+R6
+vmux_4to1
+R0
+!i10b 1
+!s100 6BlhC?U;R2?99RcGZYT1>3
+I15<j[4K1BT`oS53:H^H6M0
+R1
+w1721498387
+8D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/mux_4to1.v
+FD:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/mux_4to1.v
+!i122 2
+L0 1 9
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/mux_4to1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Documents/Courses/Degital Design_KW/Project 1/Spartan-6-FPGA-DSP48A1-Slice/src/mux_4to1.v|
+!i113 0
+R5
+R6
