@@ -1,6 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Documents/Courses/Degital Design_KW/Project 1/ff_mux.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ff_mux
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Documents/Courses/Degital Design_KW/Project 1/project_DSP48A1/project_DSP48A1.srcs/sources_1/imports/Project 1/DSP48A1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module DSP48A1
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Documents/Courses/Degital Design_KW/Project 1/project_DSP48A1/project_DSP48A1.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
