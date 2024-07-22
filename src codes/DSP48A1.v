@@ -32,7 +32,7 @@ module DSP48A1 #(
     wire [7:0] OPMODE_REG;
     wire [17:0] BCIN; // The BCIN input is the direct cascade from the adjacent DSP48A1 BCOUT
     wire [17:0] B_Mux, A0_REG, A1_REG, B0_REG, B1_REG, D_REG, Pre_Add_Sub, B_add_sub_mux;
-    wire [35:0] mult, M_REG;
+    wire [35:0] Mult, M_REG;
     wire [47:0] C_REG, D_A_B, X_Mux, Z_Mux, Post_Add_Sub, P_REG;
     wire Carry_Cascade, Carry_In_REG, Carry_Out_Post, CARRYOUT_REG;
 
@@ -47,8 +47,8 @@ module DSP48A1 #(
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(18), .XREG(B1REG)) B1_ff_mux (.clk(CLK), .rst(RSTB), .clk_en(CEB), .d(B_add_sub_mux), .q(B1_REG)); // B1 register
     assign BCOUT = B1_REG;
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(18), .XREG(A1REG)) A1_ff_mux (.clk(CLK), .rst(RSTA), .clk_en(CEA), .d(A0_REG), .q(A1_REG)); // A1 register
-    assign mult = A1_REG * B1_REG; // Multiply operation
-    ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(36), .XREG(MREG)) M_ff_mux (.clk(CLK), .rst(RSTM), .clk_en(CEM), .d(mult), .q(M_REG)); // M register
+    assign Mult = A1_REG * B1_REG; // Multiply operation
+    ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(36), .XREG(MREG)) M_ff_mux (.clk(CLK), .rst(RSTM), .clk_en(CEM), .d(Mult), .q(M_REG)); // M register
     assign M = M_REG;
     assign Carry_Cascade = (CARRYINSEL == "OPMODE5") ? OPMODE_REG[5] : (CARRYINSEL == "CARRYIN") ? CARRYIN : 0; // Carry MUX, either CARRYIN or opcode[5]
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(1), .XREG(CARRYINREG)) CYI_ff_mux (.clk(CLK), .rst(RSTCARRYIN), .clk_en(CECARRYIN), .d(Carry_Cascade), .q(Carry_In_REG)); // CARRYIN register
