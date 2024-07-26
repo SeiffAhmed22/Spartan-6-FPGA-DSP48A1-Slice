@@ -32,7 +32,7 @@ module DSP48A1 #(
     wire [7:0] OPMODE_REG;
     wire [17:0] BCIN; // The BCIN input is the direct cascade from the adjacent DSP48A1 BCOUT
     wire [17:0] B_Mux, A0_REG, A1_REG, B0_REG, B1_REG, D_REG, Pre_Add_Sub, B_add_sub_mux;
-    wire [35:0] Mult;
+    wire [35:0] Mult, M_REG;
     wire [47:0] C_REG, D_A_B, X_Mux, Z_Mux, Post_Add_Sub,;
     wire Carry_Cascade, Carry_In_REG, Carry_Out_Post;
 
@@ -48,11 +48,12 @@ module DSP48A1 #(
     assign BCOUT = B1_REG;
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(18), .XREG(A1REG)) A1_ff_mux (.clk(CLK), .rst(RSTA), .clk_en(CEA), .d(A0_REG), .q(A1_REG)); // A1 register
     assign Mult = A1_REG * B1_REG; // Multiply operation
-    ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(36), .XREG(MREG)) M_ff_mux (.clk(CLK), .rst(RSTM), .clk_en(CEM), .d(Mult), .q(M)); // M register
+    ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(36), .XREG(MREG)) M_ff_mux (.clk(CLK), .rst(RSTM), .clk_en(CEM), .d(Mult), .q(M_REG)); // M register
+    ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(36), .XREG(1)) M_buffer_ff_mux (.clk(CLK), .rst(0), .clk_en(1), .d(M_REG), .q(M)); // Buffered M register
     assign Carry_Cascade = (CARRYINSEL == "OPMODE5") ? OPMODE_REG[5] : (CARRYINSEL == "CARRYIN") ? CARRYIN : 0; // Carry MUX, either CARRYIN or opcode[5]
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(1), .XREG(CARRYINREG)) CYI_ff_mux (.clk(CLK), .rst(RSTCARRYIN), .clk_en(CECARRYIN), .d(Carry_Cascade), .q(Carry_In_REG)); // CARRYIN register
     assign D_A_B = {D_REG[11:0], A1_REG[17:0], B1_REG[17:0]};
-    mux_4to1 #(.WIDTH(48)) X_4x1_MUX (.in0({48{1'b0}}), .in1({{12{1'b0}}, M}), .in2(P), .in3(D_A_B), .sel(OPMODE_REG[1:0]), .out(X_Mux)); // X 4x1 MUX
+    mux_4to1 #(.WIDTH(48)) X_4x1_MUX (.in0({48{1'b0}}), .in1({{12{1'b0}}, M_REG}), .in2(P), .in3(D_A_B), .sel(OPMODE_REG[1:0]), .out(X_Mux)); // X 4x1 MUX
     mux_4to1 #(.WIDTH(48)) Z_4x1_MUX (.in0({48{1'b0}}), .in1(PCIN), .in2(P), .in3(C_REG), .sel(OPMODE_REG[3:2]), .out(Z_Mux)); // Z 4x1 MUX
     assign {Carry_Out_Post, Post_Add_Sub} = (OPMODE_REG[7] == 1) ? (Z_Mux - (X_Mux + Carry_In_REG)) : (Z_Mux + X_Mux + Carry_In_REG); // Choose between addition or subtraction in post-adder/subtracter
     ff_mux #(.RSTTYPE(RSTTYPE), .WIDTH(1), .XREG(CARRYOUTREG)) CYO_ff_mux (.clk(CLK), .rst(RSTCARRYIN), .clk_en(CECARRYIN), .d(Carry_Out_Post), .q(CARRYOUT)); // CARRYOUT register
