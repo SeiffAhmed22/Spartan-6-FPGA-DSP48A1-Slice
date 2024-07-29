@@ -47,3 +47,7 @@ You can also manually compile the source files and run the simulation through yo
 - `mux_4to1.v`: Verilog implementation of the 4x1 MUX.
 - `DSP48A1_tb.v`: Verilog testbench for simulation and verification.
 - `project.do`: Script for automating the simulation process.
+
+## Block Diagram
+
+![Block Diagram](DSP48A1-block-diagram.png)
