@@ -19,15 +19,15 @@ To work with this project, a Verilog simulator supporting the Spartan-6 architec
 
 ### 1. Simulating the Design (using the `.do` file)
 
-A `run_sim.do` file is included to streamline the simulation process.
+A `project.do` file is included to streamline the simulation process.
 
 - Ensure proper setup of your simulator and project environment.
 - To execute the simulation:
-  - Load the source files in the tool and use the console command: `do run_sim.do`
+  - Load the source files in the tool and use the console command: `do project.do`
   **OR**
   - Open a terminal, navigate to the directory containing `run_sim.do`, and execute:
-    - `source run_sim.do` (Linux/macOS)
-    - `run_sim.do` (Windows)
+    - `source project.do` (Linux/macOS)
+    - `project.do` (Windows)
 
   This script automates the compilation of Verilog files, runs the simulation using the testbench, and displays the waveform.
 
@@ -37,11 +37,13 @@ You can also manually compile the source files and run the simulation through yo
 
 ### 3. Testbench Usage
 
-- The testbench file (`DSP_block_TB1.v`) includes example test cases for DSP48A1 operations.
+- The testbench file (`DSP48A1.v`) includes example test cases for DSP48A1 operations.
 - Modify the testbench to add more test vectors for thorough verification.
 
 ## Design Files
 
-- `DSP_block.v`: Top-level Verilog module for DSP48A1 slice implementation.
-- `DSP_block_TB1.v`: Verilog testbench for simulation and verification.
-- `run_sim.do`: Script for automating the simulation process.
+- `DSP48A1.v`: Top-level Verilog module for DSP48A1 slice implementation.
+- `ff_mux.v`: Verilog implementation of the flip-flop and the MUX in the block diagram.
+- `mux_4to1.v`: Verilog implementation of the 4x1 MUX.
+- `DSP48A1_tb.v`: Verilog testbench for simulation and verification.
+- `project.do`: Script for automating the simulation process.
