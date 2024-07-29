@@ -33,7 +33,7 @@ module DSP48A1 #(
     wire [17:0] BCIN; // The BCIN input is the direct cascade from the adjacent DSP48A1 BCOUT
     wire [17:0] B_Mux, A0_REG, A1_REG, B0_REG, B1_REG, D_REG, Pre_Add_Sub, B_add_sub_mux;
     wire [35:0] Mult, M_REG;
-    wire [47:0] C_REG, D_A_B, X_Mux, Z_Mux, Post_Add_Sub,;
+    wire [47:0] C_REG, D_A_B, X_Mux, Z_Mux, Post_Add_Sub;
     wire Carry_Cascade, Carry_In_REG, Carry_Out_Post;
 
     assign B_Mux = (B_INPUT == "DIRECT") ? B : (B_INPUT == "CASCADE") ? BCIN : 0; // B input MUX, either direct (B) input or cascaded input (BCIN)
