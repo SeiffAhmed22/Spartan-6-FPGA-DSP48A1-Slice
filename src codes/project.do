@@ -1,0 +1,54 @@
+vlog ff_mux.v mux_4to1.v DSP48A1.v DSP48A1_tb.v
+vsim -voptargs=+acc work.DSP48A1_tb
+add wave -position insertpoint  \
+sim:/DSP48A1_tb/DUT/A \
+sim:/DSP48A1_tb/DUT/B \
+sim:/DSP48A1_tb/DUT/D \
+sim:/DSP48A1_tb/DUT/C \
+sim:/DSP48A1_tb/DUT/CLK \
+sim:/DSP48A1_tb/DUT/CARRYIN \
+sim:/DSP48A1_tb/DUT/OPMODE \
+sim:/DSP48A1_tb/DUT/RSTA \
+sim:/DSP48A1_tb/DUT/RSTB \
+sim:/DSP48A1_tb/DUT/RSTM \
+sim:/DSP48A1_tb/DUT/RSTP \
+sim:/DSP48A1_tb/DUT/RSTC \
+sim:/DSP48A1_tb/DUT/RSTD \
+sim:/DSP48A1_tb/DUT/RSTCARRYIN \
+sim:/DSP48A1_tb/DUT/RSTOPMODE \
+sim:/DSP48A1_tb/DUT/CEA \
+sim:/DSP48A1_tb/DUT/CEB \
+sim:/DSP48A1_tb/DUT/CEM \
+sim:/DSP48A1_tb/DUT/CEP \
+sim:/DSP48A1_tb/DUT/CEC \
+sim:/DSP48A1_tb/DUT/CED \
+sim:/DSP48A1_tb/DUT/CECARRYIN \
+sim:/DSP48A1_tb/DUT/CEOPMODE \
+sim:/DSP48A1_tb/DUT/PCIN \
+sim:/DSP48A1_tb/DUT/BCOUT \
+sim:/DSP48A1_tb/DUT/PCOUT \
+sim:/DSP48A1_tb/DUT/P \
+sim:/DSP48A1_tb/DUT/M \
+sim:/DSP48A1_tb/DUT/CARRYOUT \
+sim:/DSP48A1_tb/DUT/CARRYOUTF \
+sim:/DSP48A1_tb/DUT/OPMODE_REG \
+sim:/DSP48A1_tb/DUT/BCIN \
+sim:/DSP48A1_tb/DUT/B_Mux \
+sim:/DSP48A1_tb/DUT/A0_REG \
+sim:/DSP48A1_tb/DUT/A1_REG \
+sim:/DSP48A1_tb/DUT/B0_REG \
+sim:/DSP48A1_tb/DUT/B1_REG \
+sim:/DSP48A1_tb/DUT/D_REG \
+sim:/DSP48A1_tb/DUT/Pre_Add_Sub \
+sim:/DSP48A1_tb/DUT/B_add_sub_mux \
+sim:/DSP48A1_tb/DUT/Mult \
+sim:/DSP48A1_tb/DUT/M_REG \
+sim:/DSP48A1_tb/DUT/C_REG \
+sim:/DSP48A1_tb/DUT/D_A_B \
+sim:/DSP48A1_tb/DUT/X_Mux \
+sim:/DSP48A1_tb/DUT/Z_Mux \
+sim:/DSP48A1_tb/DUT/Post_Add_Sub \
+sim:/DSP48A1_tb/DUT/Carry_Cascade \
+sim:/DSP48A1_tb/DUT/Carry_In_REG \
+sim:/DSP48A1_tb/DUT/Carry_Out_Post
+run -all
