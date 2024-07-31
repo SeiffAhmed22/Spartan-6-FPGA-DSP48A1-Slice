@@ -51,4 +51,4 @@ sim:/DSP48A1_tb/DUT/Post_Add_Sub \
 sim:/DSP48A1_tb/DUT/Carry_Cascade \
 sim:/DSP48A1_tb/DUT/Carry_In_REG \
 sim:/DSP48A1_tb/DUT/Carry_Out_Post
-run -all 
+run -all
